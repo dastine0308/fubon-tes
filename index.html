@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>富邦人壽</title>
+
+    <link
+      rel="stylesheet"
+      href="vendor/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="css/index.css" />
+
+    <!-- font-awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body class="body">
+    <!-- header -->
+    <div class="header position-fixed">
+      <div class="header__line"></div>
+      <div
+        class="headerContainer d-flex justify-content-center justify-content-md-between"
+      >
+        <div class="headerContainer__logo">
+          <img class="img-fluid" src="/img/fb_logo.svg" />
+        </div>
+        <div class="headerContainer__button d-md-flex align-items-md-center">
+          <div class="home">
+            <img class="img-fluid" src="/img/btn_home.svg" />
+          </div>
+          <p class="d-none d-md-block font-weight-bold ml-1">回首頁</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- content -->
+    <div class="content" id="app">
+      <div class="content__main">
+        <!-- back top btn -->
+        <div class="backTop__btn" v-if="backFlag" @click="backTop"></div>
+        <!-- web content-->
+        <div class="contentTitle d-none d-md-block" v-if="isWeb">變更流程</div>
+        <div class="stepContainer" v-if="isWeb">
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 1</div>
+              <div class="step__description mb-2 mb-md-0">
+                由【富邦人壽官網】，點選『保戶會員專區』登入。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web01.png" />
+              </div>
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web02.png" />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 2</div>
+              <div class="step__description mb-2 mb-md-0">
+                點選『線上交易』<br />★保戶需先申請成為交易會員方可於網路辦理變更。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web03.png" />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 3</div>
+              <div class="step__description mb-2 mb-md-0">
+                點選後進入『多張保單地址/電話/ E-mail變更』作業。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web04.png" />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 4</div>
+              <div class="step__description mb-2 mb-md-0">
+                確認顯示的行動電話及電子信箱是否為最新資料，若需修改請點選
+                <div class="edit-btn"></div>
+                修改。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web05.png" />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 5</div>
+              <div class="step__description mb-2 mb-md-0">
+                請點選
+                <div class="edit-btn"></div>
+                即可輸入欲變更之內容
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web06.png" />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 6</div>
+              <div class="step__description mb-2 mb-md-0">
+                1 確認變更內容<br />
+                2 點選
+                <div class="del-btn"></div>
+                ，即可刪除此項目<br />
+                3 點選
+                <div class="edit-btn"></div>
+                ，可回此變更項目輸入修改變更內容
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web07.png" />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 7</div>
+              <div class="step__description mb-2 mb-md-0">
+                請審閱重要提醒，確認無誤後請勾選
+                □我已了解並同意後，點選確認進入下一步。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web08.png" />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 8</div>
+              <div class="step__description mb-2 mb-md-0">
+                請確認本次辦理變更資料，是否傳送至其他保險公司申辦相同變更項目。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web09.png" />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 9</div>
+              <div class="step__description mb-2 mb-md-0">
+                如同意傳送至其他保險公司，請選擇 欲傳送之保險公司(可複選)。<br />★僅提供有加入試辦之保險公司，請勾選有該公司保單之保險公司。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web10.png" />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 10</div>
+              <div class="step__description mb-2 mb-md-0">
+                請審閱保全申請轉送暨個人資料告知事項，審閱完成後，請點選
+                □本人已審閱蒐集、處理及利用個人資料告知事項，如取消轉送，請點選『不同意傳送』，可回至確認是否同意轉送頁重新選擇。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web11.png" />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 11</div>
+              <div class="step__description mb-2 mb-md-0">
+                輸入動態密碼，未收到動態密碼，可點選重新發送動態密碼。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web12.png" />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 12</div>
+              <div class="step__description mb-2 mb-md-0">
+                委託受理完成。可點選『列印內容』，產出加密之PDF檔，密碼為要保人身分證字號，第一個英文字母大寫。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img class="img-fluid" src="img/instructions/web/web13.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mobile content-->
+        <div class="contentTitle d-md-none" v-if="isMobile">
+          多張保單地址/電話/E-mail變更
+        </div>
+        <div class="stepContainer" v-if="isMobile">
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 1</div>
+              <div class="step__description mb-2 mb-md-0">
+                由【手機e方便】，點選『保戶會員專區』登入。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile01.png"
+                />
+              </div>
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile02.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 2</div>
+              <div class="step__description mb-2 mb-md-0">
+                點選『線上交易』<br />★保戶需先申請成為交易會員方可於網路辦理變更。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile03.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 3</div>
+              <div class="step__description mb-2 mb-md-0">
+                點選後進入『多張保單地址/電話/ E-mail變更』作業。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile04.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 4</div>
+              <div class="step__description mb-2 mb-md-0">
+                確認顯示的行動電話及電子信箱是否為最新資料，若需修改請點選
+                <div class="edit-btn"></div>
+                修改。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile05.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 5</div>
+              <div class="step__description mb-2 mb-md-0">
+                請點選
+                <div class="edit-btn"></div>
+                即可輸入欲變更之內容
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile06.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 6</div>
+              <div class="step__description mb-2 mb-md-0">
+                1 確認變更內容<br />
+                2 點選
+                <div class="del-btn"></div>
+                ，即可刪除此項目<br />
+                3 點選
+                <div class="edit-btn"></div>
+                ，可回此變更項目輸入修改變更內容
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile07.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 7</div>
+              <div class="step__description mb-2 mb-md-0">
+                請審閱重要提醒，確認無誤後請勾選
+                □我已了解並同意後，點選確認進入下一步。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile08.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 8</div>
+              <div class="step__description mb-2 mb-md-0">
+                請確認本次辦理變更資料，是否傳送至其他保險公司申辦相同變更項目。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile09.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 9</div>
+              <div class="step__description mb-2 mb-md-0">
+                如同意傳送至其他保險公司，請選擇 欲傳送之保險公司(可複選)。<br />★僅提供有加入試辦之保險公司，請勾選有該公司保單之保險公司。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile10.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 10</div>
+              <div class="step__description mb-2 mb-md-0">
+                請審閱保全申請轉送暨個人資料告知事項，審閱完成後，請點選
+                □本人已審閱蒐集、處理及利用個人資料告知事項，如取消轉送，請點選『不同意傳送』，可回至確認是否同意轉送頁重新選擇。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile11.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 11</div>
+              <div class="step__description mb-2 mb-md-0">
+                輸入動態密碼，未收到動態密碼，可點選重新發送動態密碼。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile12.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="step d-flex flex-column flex-md-row">
+            <div class="step__text">
+              <div class="step__subtitle">步驟 12</div>
+              <div class="step__description mb-2 mb-md-0">
+                委託受理完成。可點選『列印內容』，產出加密之PDF檔，密碼為要保人身分證字號，第一個英文字母大寫。
+              </div>
+            </div>
+            <div class="step__imgBox mx-auto">
+              <div class="step__img">
+                <img
+                  class="img-fluid"
+                  src="img/instructions/mobile/mobile13.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div
+      class="footer d-none d-md-flex flex-column justify-content-center align-items-md-center"
+    >
+      <div>版權所有 富邦人壽</div>
+      <div>最佳瀏覽狀態請使用：Chrome77, Safari 13, Firefox69版本以上</div>
+    </div>
+
+    <!-- vue CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+
+    <script src="js/app.js "></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js "></script>
+    <script src="vendor/bootstrap/4.2.1/js/bootstrap.bundle.min.js "></script>
+  </body>
+</html>
