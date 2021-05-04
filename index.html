@@ -128,11 +128,14 @@
             <div class="step__text">
               <div class="step__subtitle">步驟 6</div>
               <div class="step__description mb-2 mb-md-0">
-                1 確認變更內容<br />
-                2 點選
+                <div class="text__num">1</div>
+                確認變更內容<br />
+                <div class="text__num">2</div>
+                點選
                 <div class="del-btn"></div>
                 ，即可刪除此項目<br />
-                3 點選
+                <div class="text__num">3</div>
+                點選
                 <div class="edit-btn"></div>
                 ，可回此變更項目輸入修改變更內容
               </div>
@@ -226,10 +229,10 @@
         </div>
 
         <!-- mobile content-->
-        <div class="contentTitle d-md-none" v-if="isMobile">
+        <div class="contentTitle d-md-none" v-if="!isWeb">
           多張保單地址/電話/E-mail變更
         </div>
-        <div class="stepContainer" v-if="isMobile">
+        <div class="stepContainer" v-if="!isWeb">
           <div class="step d-flex flex-column flex-md-row">
             <div class="step__text">
               <div class="step__subtitle">步驟 1</div>
@@ -324,11 +327,14 @@
             <div class="step__text">
               <div class="step__subtitle">步驟 6</div>
               <div class="step__description mb-2 mb-md-0">
-                1 確認變更內容<br />
-                2 點選
+                <div class="text__num">1</div>
+                確認變更內容<br />
+                <div class="text__num">2</div>
+                點選
                 <div class="del-btn"></div>
                 ，即可刪除此項目<br />
-                3 點選
+                <div class="text__num">3</div>
+                點選
                 <div class="edit-btn"></div>
                 ，可回此變更項目輸入修改變更內容
               </div>

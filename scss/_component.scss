@@ -44,3 +44,13 @@
     top: -18px;
   }
 }
+
+.text__num {
+  display: inline-block;
+  text-align: center;
+  width: 37px;
+  height: 19px;
+  background: $orange 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  color: $white;
+}

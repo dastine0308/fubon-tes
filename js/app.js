@@ -8,10 +8,8 @@ var app = new Vue({
       screenWidth: document.body.clientWidth,
       // 螢幕高
       screenHeight: document.body.clientHeight,
-      // web
+      // is web
       isWeb: false,
-      // mobile
-      isMobile: false,
     };
   },
   methods: {
@@ -21,10 +19,8 @@ var app = new Vue({
       // 大於 768px (md-width) 視為網頁版
       if (this.screenWidth > 768) {
         that.isWeb = true;
-        that.isMobile = false;
       } else {
         that.isWeb = false;
-        that.isMobile = true;
       }
     },
     // 計算距離頂部的高度
